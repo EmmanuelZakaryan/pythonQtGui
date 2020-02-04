@@ -1,0 +1,44 @@
+name: qtgui
+version: '0.1'
+summary: Qt python ui example
+description: kiosk using wayland
+base: core18
+confinement: devmode
+grade: devel
+
+apps:
+  qtgui:
+    command: "miral-app -kiosk -launcher 'python3 gui.py'"
+
+plugs:
+  opengl:
+  wayland:
+
+parts:
+  qtgui:
+    plugin: python3
+    source: .
+    stage-packages:
+      - glmark2-wayland
+      - python3-pyqt5
+
+  mesa:
+    plugin: nil
+
+    build-packages:
+      - qtbase5-dev
+      - dpkg-dev
+
+    stage-packages:
+      - libxkbcommon0
+      - ttf-ubuntu-font-family
+      - dmz-cursor-theme
+      - light-themes
+      - adwaita-icon-theme
+      - gnome-themes-standard
+      - shared-mime-info
+      - libqt5gui5
+      - libgdk-pixbuf2.0-0
+      - libqt5svg5
+      - locales-all
+      - xdg-user-dirs

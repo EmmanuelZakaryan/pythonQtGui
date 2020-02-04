@@ -1,0 +1,2 @@
+{'alu': 1, 'acier': 1, 'tetra': 0, 'pet': 1, 'verre': 1}
+Emmanuel
